@@ -49,8 +49,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// default route is the employee login page
 $route['default_controller'] = 'EmployeeController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route["login"] = '';
+//Employee routes - pages
+$route['employee/login'] = 'EmployeeController';
+
+// Admin routes - pages
+$route['admin/login'] = 'AdminController';
+$route['admin/register_super_admin'] = 'AdminController/register_super_admin';
+
+// Admin routes - handlers
+$route["admin/register_super_admin_handler"] = "AdminController/register_super_admin_handler";

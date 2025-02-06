@@ -8,12 +8,14 @@ class EmployeeController extends CI_Controller
     {
         parent::__construct();
         $this->load->model("AdminModel");
+        $this->load->helper("admin_helper");
     }
 
     public function index()
     {
-        $adminModel = new AdminModel();
-        echo $adminModel->is_super_admin_exists();
+        check_super_admin_existence();
+        $this->load->view("employee/login");
+
     }
 }
 

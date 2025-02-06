@@ -12,6 +12,7 @@ class AdminModel extends CI_Model
 
     public function is_super_admin_exists()
     {
+        // check the database if a super admin account is existing in the database
         $this->db->where("role", "super-admin");
         $query = $this->db->get("admintbl");
         if ($query->num_rows()) {
@@ -19,6 +20,12 @@ class AdminModel extends CI_Model
         } else {
             return false;
         }
+    }
+
+    public function get_admins()
+    {
+        $result = $this->db->get("admintbl");
+        return $result->result_array();
     }
 }
 
